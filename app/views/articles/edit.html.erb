@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Edit Article</title>
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+  <%= stylesheet_link_tag 'application', media: 'all' %>
+</head>
+
+<body id="page-top">
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand js-scroll-trigger" href="#">Blog SAAS</a>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <%= link_to 'My Blog', articles_path, class: 'nav-link js-scroll-trigger' %>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <header class="masthead">
+    <div class="container">
+      <h2>Edit Article</h2>
+      <%= form_with(model: @article, local: true) do |form| %>
+        <div class="form-group">
+          <%= form.label :title %>
+          <%= form.text_field :title, class: 'form-control' %>
+        </div>
+        <div class="form-group">
+          <%= form.label :content %>
+          <%= form.text_area :content, class: 'form-control' %>
+        </div>
+        <div class="actions">
+          <%= form.submit 'Update Article', class: 'btn btn-primary' %>
+        </div>
+      <% end %>
+    </div>
+  </header>
+
+  <footer class="text-center">
+    <div class="footer-below">
+      <div class="container">
+        <h3>Ingeniería en Telemática</h3>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/jquery.min.js"></script>
+  <script src="assets/bootstrap.bundle.min.js"></script>
+</body>
+</html>

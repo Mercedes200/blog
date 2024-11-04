@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+ 
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <title>Create New Article</title>
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+  <%= stylesheet_link_tag 'application', media: 'all' %>
+</head>
+
+<body id="page-top">
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand js-scroll-trigger" href="#">Blog SAAS</a>
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        Menu
+        <i class="fa fa-bars"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <%= link_to 'My Blog', articles_path, class: 'nav-link js-scroll-trigger' %>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Header -->
+  <header class="masthead">
+    <div class="container">
+      <h2>Create a New Article</h2>
+
+      <%= form_with(model: @article, local: true) do |form| %>
+        <% if @article.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(@article.errors.count, "error") %> prohibited this article from being saved:</h2>
+            <ul>
+              <% @article.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
+
+        <div class="form-group">
+          <%= form.label :title %>
+          <%= form.text_field :title, class: 'form-control' %>
+        </div>
+        <div class="form-group">
+          <%= form.label :text %>
+          <%= form.text_area :text, class: 'form-control' %>
+        </div>
+        <div class="actions">
+          <%= form.submit 'Create Article', class: 'btn btn-primary' %>
+        </div>
+      <% end %>
+    </div>
+  </header>
+
+  <!-- Footer -->
+  <footer class="text-center">
+    <div class="footer-below">
+      <div class="container">
+        <h3>Ingeniería en Telemática</h3>
+        <ul class="list-inline">
+          <li class="list-inline-item">
+            <a class="btn-social btn-outline" href="#">
+              <i class="fa fa-fw fa-facebook"></i>
+            </a>
+          </li>
+          <li class="list-inline-item">
+            <a class="btn-social btn-outline" href="#">
+              <i class="fa fa-fw fa-twitter"></i>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scroll to Top Button (Only visible on small and extra-small screen sizes) -->
+  <div class="scroll-top d-lg-none">
+    <a class="btn btn-primary js-scroll-trigger" href="">
+      <i class="fa fa-chevron-up"></i>
+    </a>
+  </div>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="assets/jquery.min.js"></script>
+  <script src="assets/bootstrap.bundle.min.js"></script>
+  <!-- Custom scripts for this template -->
+  <script src="assets/freelancer.min.js"></script>
+</body>
+</html>
